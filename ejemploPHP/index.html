@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de la Consulta</title>
+</head>
+<body>
+
+<h2>Resultados de la Consulta</h2>
+
+<button onclick="realizarConsulta()">Realizar Consulta</button>
+
+<div id="resultados"></div>
+
+<script>
+function realizarConsulta() {
+    // Realizar una solicitud FETCH al backend
+    fetch('backend.php')
+        .then(response => response.json())
+        .then(resultados => mostrarResultados(resultados))
+        .catch(error => console.error('Error:', error));
+}
+
+function mostrarResultados(resultados) {
+    var resultadosDiv = document.getElementById("resultados");
+
+    if (resultados.length > 0) {
+        // Crear tabla de resultados
+        var tabla = "<table border='1'><tr><th>ID Cliente</th><th>Nombre</th><th>Dirección</th><th>Teléfono</th></tr>";
+        for (var i = 0; i < resultados.length; i++) {
+            tabla += "<tr><td>" + resultados[i].id_cliente + "</td><td>" + resultados[i].nombre + "</td><td>" + resultados[i].direccion + "</td><td>" + resultados[i].telefono + "</td></tr>";
+        }
+        tabla += "</table>";
+        resultadosDiv.innerHTML = tabla;
+    } else {
+        resultadosDiv.innerHTML = "<p>No se encontraron resultados</p>";
+    }
+}
+</script>
+
+</body>
+</html>
