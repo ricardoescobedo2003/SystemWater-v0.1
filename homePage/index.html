@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de Inicio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header>
+    <img id="logo" src="/img/watr-system.png" alt="Logo de la empresa">
+  </header>
+
+  <main>
+    <div id="periodos">
+      <label for="periodo">En que periodo realizo su pago?:</label>
+      <label for="periodo">Ejemplo si su pago lo realizo un 01/03/24 entonces seleccion el periodo Marzo-Abril 2024 etc.</label>
+      <select id="periodo" name="periodo">
+        <option value="enero-febrero-2024">Enero-Febrero 2024</option>
+        <option value="marzo-abril-2024">Marzo-Abril 2024</option>
+        <option value="mayo-junio-2024">Mayo-Junio 2024</option>
+        <option value="julio-agosto-2024">Julio-Agosto 2024</option>
+        <option value="septiembre-octubre-2024">Septiembre-Octubre 2024</option>
+        <option value="noviembre-diciembre-2024">Noviembre-Diciembre 2024</option>
+
+        <!-- Agrega más opciones según sea necesario -->
+      </select>
+    </div>
+
+    <form>
+      <label for="usuario">Usuario:</label>
+      <input type="text" id="usuario" name="usuario" required>
+
+      <label for="contrasena">No de Recibo:</label>
+      <input for="password" id="contrasena" name="contrasena" required>
+
+      <button type="button" onclick="buscar()">Buscar</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; Escobedo 2024</p>
+  </footer>
+</body>
+
+</html>

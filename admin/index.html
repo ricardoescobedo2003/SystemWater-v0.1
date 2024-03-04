@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Administrador</title>
+  <link rel="stylesheet" href="admin-styles.css">
+</head>
+
+<body>
+  <header>
+    <!-- Agrega tu logotipo aquí -->
+    <img id="logo" src="/img/watr-system.png" alt="Logo de la empresa">
+    <h1>Panel de Administrador</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="/index.html">Inicio</a></li>
+      <li><a href="#">Gestionar Usuarios</a></li>
+      <li><a href="#">Registrar Usuario</a></li>
+      <li><a href="#">Historial de Pagos</a></li>
+      <li><a href="#">Búsqueda de Recibo</a></li>
+
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Registrar Pago de Agua</h2>
+    <form>
+      <label for="usuario">Usuario:</label>
+      <input type="text" id="usuario" name="usuario" required>
+
+      <label for="periodo">Periodo de Pago:</label>
+      <select id="periodo" name="periodo">
+        <option value="enero-febrero-2024">Enero-Febrero 2024</option>
+        <option value="marzo-abril-2024">Marzo-Abril 2024</option>
+        <!-- Agrega más opciones según sea necesario -->
+      </select>
+
+      <label for="monto">Monto:</label>
+      <input type="text" id="monto" name="monto" required>
+
+      <label for="monto">Domicilio:</label>
+      <input type="text" id="domicilio" name="domicilio" required>
+
+      
+
+
+      <button type="button" onclick="registrarPago()">Registrar Pago</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; Escobedo 2024</p>
+  </footer>
+</body>
+
+</html>
