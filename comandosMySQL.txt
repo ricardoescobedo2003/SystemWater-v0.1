@@ -1,0 +1,71 @@
+--------------CREACIION DE LA BASE DE DATOS--------------
+CREATE TABLE clientes (
+    id_cliente INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    nombre VARCHAR(255) NOT NULL,
+    direccion VARCHAR(255),
+    telefono BIGINT(14)
+);
+
+CREATE TABLE pagos (
+    id_pago INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    periodo_de_pago DATE NOT NULL,
+    monto DECIMAL(10,2) NOT NULL,
+    domicilio VARCHAR(255) NOT NULL
+);
+
+
+CREATE TABLE pagos (
+    id_pago INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    nombre VARCHAR(255) NOT NULL,
+    periodo VARCHAR(20) NOT NULL,
+    monto DECIMAL(10,2) NOT NULL,
+    domicilio VARCHAR(255) NOT NULL
+);
+
+INSERT INTO pagos (nombre, periodo, monto, domicilio) VALUES
+    ('Cliente1', 'enero-febrero', 500.00, 'Calle A, Ciudad X'),
+    ('Cliente2', 'febrero-marzo', 600.00, 'Calle B, Ciudad Y'),
+    ('Cliente3', 'marzo-abril', 450.50, 'Calle C, Ciudad Z'),
+    ('Cliente4', 'abril-mayo', 700.00, 'Calle D, Ciudad W'),
+    ('Cliente5', 'mayo-junio', 550.75, 'Calle E, Ciudad V'),
+    ('Cliente6', 'junio-julio', 800.00, 'Calle F, Ciudad U'),
+    ('Cliente7', 'julio-agosto', 650.25, 'Calle G, Ciudad T'),
+    ('Cliente8', 'agosto-septiembre', 720.50, 'Calle H, Ciudad S'),
+    ('Cliente9', 'septiembre-octubre', 590.30, 'Calle I, Ciudad R'),
+    ('Cliente10', 'octubre-noviembre', 670.80, 'Calle J, Ciudad Q');
+
+
+--------------CREACIION DE LA BASE DE DATOS--------------
+
+
+-------------LLENADO DE INFORMACION--------------
+INSERT INTO clientes (nombre, direccion, telefono) VALUES
+    ('Cliente1', 'Direccion1', 12345678901234),
+    ('Cliente2', 'Direccion2', 23456789012345),
+    ('Cliente3', 'Direccion3', 34567890123456),
+    ('Cliente4', 'Direccion4', 45678901234567),
+    ('Cliente5', 'Direccion5', 56789012345678),
+    ('Cliente6', 'Direccion6', 67890123456789),
+    ('Cliente7', 'Direccion7', 78901234567890),
+    ('Cliente8', 'Direccion8', 89012345678901),
+    ('Cliente9', 'Direccion9', 90123456789012),
+    ('Cliente10', 'Direccion10', 12345678901234),
+    ('Cliente11', 'Direccion11', 23456789012345),
+    ('Cliente12', 'Direccion12', 34567890123456),
+    ('Cliente13', 'Direccion13', 45678901234567),
+    ('Cliente14', 'Direccion14', 56789012345678),
+    ('Cliente15', 'Direccion15', 67890123456789),
+    ('Cliente16', 'Direccion16', 78901234567890),
+    ('Cliente17', 'Direccion17', 89012345678901),
+    ('Cliente18', 'Direccion18', 90123456789012),
+    ('Cliente19', 'Direccion19', 12345678901234),
+    ('Cliente20', 'Direccion20', 23456789012345);
+-------------LLENADO DE INFORMACION--------------
+
+
+---------------INSTALACION DE PHP UBUNTU--------------
+sudo apt install php libapache2-mod-php php-mysql
+sudo systemctl restart apache2
+sudo a2enmod php
+sudo systemctl restart apache2
+---------------INSTALACION DE PHP UBUNTU--------------

@@ -5,9 +5,7 @@ function login() {
 
     // Verificar las credenciales
     if (usernameInput === 'ricardo.escobedo' && passwordInput === '21060212') {
-        // Credenciales válidas, redirigir a la página principal o realizar otras acciones
         window.location.href="/admin/index.html"
-        // Aquí podrías redirigir al usuario a otra página usando window.location.href
     }
     if  (usernameInput == 'martin.salas' && passwordInput == '070523'){
         alert('Inicia de sesion como martin');

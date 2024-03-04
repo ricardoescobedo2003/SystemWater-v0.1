@@ -6,11 +6,11 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="shortcut icon" href="img/watr-system.png"> 
 
-    <title>Mostrar los Usuarios</title>
+    <title>Mostrar los Pagos</title>
 </head>
 <body>
 
-<h2>Mostrar a los Usuarios</h2>
+<h2>Mostrar a los Pagos</h2>
 
 <button onclick="realizarConsulta()">Mostrar</button>
 
@@ -30,9 +30,9 @@ function mostrarResultados(resultados) {
 
     if (resultados.length > 0) {
         // Crear tabla de resultados
-        var tabla = "<table><tr><th>ID Cliente</th><th>Nombre</th><th>Dirección</th><th>Teléfono</th></tr>";
+        var tabla = "<table><tr><th>ID Pago</th><th>Nombre</th><th>Periodo</th><th>Monto</th><th>Domicilio</th></tr>";
         for (var i = 0; i < resultados.length; i++) {
-            tabla += "<tr><td>" + resultados[i].id_cliente + "</td><td>" + resultados[i].nombre + "</td><td>" + resultados[i].direccion + "</td><td>" + resultados[i].telefono + "</td></tr>";
+            tabla += "<tr><td>" + resultados[i].id_pago + "</td><td>" + resultados[i].nombre + "</td><td>" + resultados[i].periodo + "</td><td>" + resultados[i].monto + "</td><td>" + resultados[i].domicilio + "</td></tr>";
         }
         tabla += "</table>";
         resultadosDiv.innerHTML = tabla;
