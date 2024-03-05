@@ -1,3 +1,10 @@
+CREATE USER 'dni'@'localhost' IDENTIFIED BY 'MinuzaFea265/';
+
+GRANT ALL PRIVILEGES ON *.* TO 'dni'@'localhost' WITH GRANT OPTION;
+
+FLUSH PRIVILEGES;
+
+
 --------------CREACIION DE LA BASE DE DATOS--------------
 CREATE TABLE clientes (
     id_cliente INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
@@ -6,12 +13,6 @@ CREATE TABLE clientes (
     telefono BIGINT(14)
 );
 
-CREATE TABLE pagos (
-    id_pago INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    periodo_de_pago DATE NOT NULL,
-    monto DECIMAL(10,2) NOT NULL,
-    domicilio VARCHAR(255) NOT NULL
-);
 
 
 CREATE TABLE pagos (

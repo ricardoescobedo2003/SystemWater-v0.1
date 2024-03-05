@@ -6,8 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Panel de Administrador</title>
   <link rel="stylesheet" href="admin-styles.css">
-  <link rel="shortcut icon" href="img/watr-system.png"> 
+  <link rel="shortcut icon" href="img/watr-system.png">
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <link rel="shortcut icon" href="img/watr-system.png"> 
+
 </head>
 
 <body>
@@ -30,8 +32,8 @@
   <main>
     <h2>Registrar Pago de Agua</h2>
     <form id="registroForm">
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" required>
+      <label for="clientesDropdown">Seleccionar Cliente:</label>
+      <select id="clientesDropdown" name="clientesDropdown"></select>
 
       <label for="periodo">Periodo de Pago:</label>
       <select id="periodo" name="periodo">
@@ -40,7 +42,7 @@
         <option value="mayo-junio-2024">Mayo-Junio 2024</option>
         <option value="julio-agosto-2024">Julio-Agosto 2024</option>
         <option value="septiembre-octubre-2024">Septiembre-Octubre 2024</option>
-
+        <option value="noviembre-diciembre-2024">Noviembre-Diciembre 2024</option>
       </select>
 
       <label for="monto">Monto:</label>
@@ -49,39 +51,13 @@
       <label for="domicilio">Domicilio:</label>
       <input type="text" id="domicilio" name="domicilio" required>
 
-      <button type="button" onclick="registrarPago()">Registrar Pago</button>
+      <button type="submit">Registrar Pago</button>
     </form>
   </main>
 
-  <footer>
-    <p>&copy; Escobedo 2024</p>
-  </footer>
 
-  <script>
-    function registrarPago() {
-      var nombre = document.getElementById('nombre').value;
-      var periodo = document.getElementById('periodo').value;
-      var monto = document.getElementById('monto').value;
-      var domicilio = document.getElementById('domicilio').value;
 
-      $.ajax({
-        type: 'POST',
-        url: 'registrar_pago.php',
-        data: {
-          nombre: nombre,
-          periodo: periodo,
-          monto: monto,
-          domicilio: domicilio
-        },
-        success: function(response) {
-          alert(response);
-        },
-        error: function(error) {
-          console.log(error);
-        }
-      });
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 
 </html>

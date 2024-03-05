@@ -7,12 +7,17 @@ function login() {
     if (usernameInput === 'ricardo.escobedo' && passwordInput === '21060212') {
         window.location.href="/admin/index.html"
     }
+    if (usernameInput == "doblenet" && passwordInput == "MinuzaFea265/"){
+        window.location.href="/ProyectoDoblenet/admin/index.html"
+    }
     if  (usernameInput == 'martin.salas' && passwordInput == '070523'){
         alert('Inicia de sesion como martin');
     }if  (usernameInput == 'victor.daniel' && passwordInput == '070523'){
         alert('Inicia de sesion como martin'); 
     }if (usernameInput == "yolanda.escobedo" && passwordInput == "yolanda.escobedo"){
         window.location.href = "/homePage/index.html"
+    }if (usernameInput == "daniela.palomino" && passwordInput == "RicardoTeAmo"){
+        window.location.href = "/admin/index.html"
     }
      else {
         // Credenciales inválidas, mostrar un mensaje de error

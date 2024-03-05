@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administrador</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="img/watr-system.png">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="shortcut icon" href="img/watr-system.png"> 
+</head>
+
+
+<body>
+    <header>
+      <!-- Agrega tu logotipo aquí -->
+      <img id="logo" src="/img/watr-system.png" alt="Logo de la empresa">
+      <h1>Panel de Administrador</h1>
+    </header>
+  <nav>
+    <ul>
+      <li><a href="/index.html">Inicio</a></li>
+      <li><a href="/consulta/index.html">Mostrar Usuarios</a></li>
+      <li><a href="/registro/index.html">Registrar Usuario</a></li>
+      <li><a href="/consulta/consulta_pagos/index.html">Historial de Pagos</a></li>
+      <li><a href="/homePage/index.html">Búsqueda de Recibo</a></li>
+    </ul>
+  </nav>
+
+    
+    <div class="container">
+        <h1>Registro de Pago Agua</h1>
+        <form action="get_clients.php" method="post">
+            <label for="clientes">Selecciona un cliente:</label>
+            <select name="clientes" id="clientes">
+                <!-- Aquí se cargarán dinámicamente los clientes desde PHP -->
+            </select>
+        </form>
+        <div id="detalles-cliente">
+            <!-- Aquí se mostrarán los detalles del cliente seleccionado -->
+        </div>
+    </div>
+
+
+    <form id="registroForm">
+
+
+        <label for="periodo">Periodo de Pago:</label>
+        <select id="periodo" name="periodo">
+          <option value="enero-febrero-2024">Enero-Febrero 2024</option>
+          <option value="marzo-abril-2024">Marzo-Abril 2024</option>
+          <option value="mayo-junio-2024">Mayo-Junio 2024</option>
+          <option value="julio-agosto-2024">Julio-Agosto 2024</option>
+          <option value="septiembre-octubre-2024">Septiembre-Octubre 2024</option>
+          <option value="noviembre-diciembre-2024">Noviembre-Diciembre 2024</option>
+        </select>
+  
+        <label for="monto">Monto:</label>
+        <input type="text" id="monto" name="monto" required>
+  
+        <label for="domicilio">Domicilio:</label>
+        <input type="text" id="domicilio" name="domicilio" required>
+  
+        <button type="submit">Registrar Pago</button>
+      </form>
+
+      <footer>
+        <p>&copy; Escobedo 2024</p>
+      </footer>
+    
+      <script src="script.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
