@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buscar Pagos</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <h2>Buscar Pagos</h2>
+    <p>Opcion para buscar el pago mas reciente de un cliente en espefico.</p>
+    <p>Si deseas obtener todos el historial de pagos del cliente ve a "Historial de Cliente".</p>
+    <form id="searchForm">
+        <input type="text" id="clientName" name="clientName" placeholder="Nombre del Cliente">
+        <button type="submit">Buscar</button>
+    </form>
+    <div id="paymentResult"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

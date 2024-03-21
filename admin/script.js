@@ -1,39 +1,49 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // Obtener referencia al select y al div de detalles
-    var selectClientes = document.getElementById('clientes');
-    var detallesCliente = document.getElementById('detalles-cliente');
+// Ejecutar la función para cargar los nombres de clientes cuando se cargue la página
+window.onload = function() {
+    cargarClientes();
+};
 
-    // Manejar el evento de envío del formulario
-    document.querySelector('form').addEventListener('submit', function (event) {
-        event.preventDefault();
+function cargarClientes() {
+    // Realiza una petición AJAX para obtener los nombres de clientes desde PHP
+    fetch('buscar_clientes.php')
+    .then(response => response.json())
+    .then(data => {
+        // Procesar la respuesta del servidor
+        const selectClientes = document.getElementById("nombre");
 
-        // Obtener el valor seleccionado en el select
-        var selectedCliente = selectClientes.value;
-
-        // Hacer una petición AJAX para obtener los detalles del cliente
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                // Mostrar los detalles del cliente en el div correspondiente
-                detallesCliente.innerHTML = xhr.responseText;
-            }
-        };
-
-        // Enviar la petición al script PHP que obtiene los detalles del cliente
-        xhr.open('GET', 'get_client_details.php?id=' + selectedCliente, true);
-        xhr.send();
+        // Agregar los nombres de clientes a la lista desplegable
+        data.forEach(nombre => {
+            const option = document.createElement("option");
+            option.text = nombre;
+            selectClientes.add(option);
+        });
+    })
+    .catch(error => {
+        console.error('Error:', error);
     });
+}
 
-    // Cargar la lista de clientes al cargar la página
-    var xhrClientes = new XMLHttpRequest();
-    xhrClientes.onreadystatechange = function () {
-        if (xhrClientes.readyState == 4 && xhrClientes.status == 200) {
-            // Llenar el select con las opciones obtenidas
-            selectClientes.innerHTML = xhrClientes.responseText;
-        }
-    };
+function registrarPago() {
+    // Obtener los datos del formulario de pago
+    var nombre = document.getElementById("nombre").value;
+    var fecha = document.getElementById("fecha").value;
+    var monto = document.getElementById("monto").value;
 
-    // Enviar la petición al script PHP que obtiene la lista de clientes
-    xhrClientes.open('GET', 'get_clients.php', true);
-    xhrClientes.send();
-});
+    // Realizar una petición AJAX para guardar los datos en la base de datos
+    fetch('registrar_pago.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'nombre=' + encodeURIComponent(nombre) + '&fecha=' + encodeURIComponent(fecha) + '&monto=' + encodeURIComponent(monto),
+    })
+    .then(response => response.text())
+    .then(data => {
+        // Procesar la respuesta del servidor
+        console.log(data);
+        alert(data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}

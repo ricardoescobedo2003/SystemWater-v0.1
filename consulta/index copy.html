@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/stylesConsulta.css">
+    <link rel="shortcut icon" href="/img/Logo R-Escobedo Software-modified.png"> 
+    <title>Mostrar los Usuarios</title>
+</head>
+<body onload="realizarConsulta()">
+    
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="redireccionar()">Registrar Cliente</a></li>
+                <li><a href="#" onclick="modificar()">Modificar</a></li>
+                <li><a href="#" onclick="inicio()">Inicio</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <p>Realizar un filtro por localidad:</p>
+    <label for="localidad">Localidad:</label>
+    <select id="localidad" name="localidad" required>
+        <option value="Tierra Blanca">Tierra Blanca </option>
+        <option value="Playas del Refugio">Playas del Refugio</option>
+        <option value="General Lauro">General Lauro</option>
+        <option value="Colonia Pozo Colorado">Colonia Pozo Colorado</option>
+        <option value="Maravillas">Maravillas</option>
+        <option value="Colonia Madero">Colonia Madero</option>
+        <option value="Colonia Lazaro Cardenas">Colonia Lazaro Cardenas</option>
+        <option value="Noria de Molinos">Noria de Molinos</option>
+        <option value="La Manga">La Manga</option>
+        <option value="El Tepetate">El Tepetate</option>
+        <option value="Carrilo Puerto">Carrilo Puerto</option>
+        <option value="Jarillas">Jarillas</option>
+        <option value="Noria del Borrego">Noria del Borrego</option>
+        <option value="La Victoria">La Victoria</option>
+        <option value="La Victoria">El Prieto</option>
+        <option value="Guadalupe de Atlas">Guadalupe de Atlas</option>
+        <option value="El Rascon">El Rascon</option>
+        <!-- Agrega más opciones según sea necesario -->
+    </select>
+    <button type="button" onclick="busquedaLocalidad()">Filtro Localidad</button>   
+
+    <div id="resultados"></div>
+
+    <script>
+        function realizarConsulta() {
+            // Realizar una solicitud FETCH al backend
+            fetch('backend.php')
+                .then(response => response.json())
+                .then(resultados => mostrarResultados(resultados))
+                .catch(error => console.error('Error:', error));
+        }
+
+        function mostrarResultados(resultados) {
+            var resultadosDiv = document.getElementById("resultados");
+
+            if (resultados.length > 0) {
+                // Crear tabla de resultados
+                var tabla = "<table><tr><th>ID Cliente</th><th>Nombre</th><th>Dirección</th><th>Localidad</th><th>Fecha Instalacion</th><th>Equipos</th><th>Mensualidad</th><th>Telefono</th><th>Comentarios</tr>";
+                for (var i = 0; i < resultados.length; i++) {
+                    tabla += "<tr><td>" + resultados[i].id_cliente + "</td><td>" + resultados[i].nombre + "</td><td>" + resultados[i].direccion + "</td><td>" + resultados[i].localidad + "</td><td>" + resultados[i].fechaInstalacion + "</td>" 
+                        + "<td>" + resultados[i].equipos + "</td><td>" + resultados[i].mensualidad + "</td>" + "<td>" + resultados[i].telefono + "</td><td>" + resultados[i].comentarios + "</td></tr>"                }
+                tabla += "</table>";
+                resultadosDiv.innerHTML = tabla;
+            } else {
+                resultadosDiv.innerHTML = "<p>No se encontraron resultados</p>";
+            }
+        }
+
+        function redireccionar() {
+            // Puedes cambiar "otra_pagina.html" por la URL a la que quieres redireccionar.
+            window.location.href = "/registro/index.html";
+        }
+
+        function inicio(){
+            window.location.href = "/admin/index.html";
+        }
+        function modificar(){
+            window.location.href = "/busquedaEdicion/index.html"
+        }
+    </script>
+</body>
+</html>

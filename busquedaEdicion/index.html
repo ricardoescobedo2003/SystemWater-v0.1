@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Usuario</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/admin/index.html">Home</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Buscar Usuario</h1>
+        <p>Busca a tu usuario por nombre o filtra los clientes por localidad</p>
+        <form id="searchForm" class="search-form">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="localidad">Localidad:</label>
+            <select id="localidad" name="localidad" required>
+                <option value="Tierra Blanca">Tierra Blanca </option>
+                <option value="Playas del Refugio">Playas del Refugio</option>
+                <option value="General Lauro">General Lauro</option>
+                <option value="Colonia Pozo Colorado">Colonia Pozo Colorado</option>
+                <option value="Maravillas">Maravillas</option>
+                <option value="Colonia Madero">Colonia Madero</option>
+                <option value="Colonia Lazaro Cardenas">Colonia Lazaro Cardenas</option>
+                <option value="Noria de Molinos">Noria de Molinos</option>
+                <option value="La Manga">La Manga</option>
+                <option value="El Tepetate">El Tepetate</option>
+                <option value="Carrilo Puerto">Carrilo Puerto</option>
+                <option value="Jarillas">Jarillas</option>
+                <option value="Noria del Borrego">Noria del Borrego</option>
+                <option value="La Victoria">La Victoria</option>
+                <option value="La Victoria">El Prieto</option>
+                <option value="Guadalupe de Atlas">Guadalupe de Atlas</option>
+                <option value="El Rascon">El Rascon</option>
+                <!-- Agrega más opciones según sea necesario -->
+            </select>
+            <button type="button" onclick="buscarUsuario()">Buscar</button>
+            <button type="button" onclick="busquedaLocalidad()">Filtro Localidad</button>   
+        </form>
+
+        <div id="resultContainer" class="result-container"></div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

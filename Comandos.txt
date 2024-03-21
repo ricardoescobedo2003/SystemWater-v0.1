@@ -1,0 +1,81 @@
+CREATE USER 'dni'@'localhost' IDENTIFIED BY 'MinuzaFea265/';
+GRANT ALL PRIVILEGES ON *.* TO 'dni'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+EXIT;
+
+
+
+
+CREATE DATABASE doblenet;
+
+
+CREATE TABLE clientes (
+    id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(45) NOT NULL,
+    direccion VARCHAR(150),
+    telefono VARCHAR(15),
+    fechaInstalacion VARCHAR(100),
+    equipos VARCHAR(100),
+    mensualidad VARCHAR(255),
+    localidad VARCHAR(255),
+    comentarios TEXT
+);
+
+
+CREATE TABLE pagos (
+    id_pago INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    nombre VARCHAR(255) NOT NULL,
+    fecha VARCHAR(20) NOT NULL,
+    monto DECIMAL(10,2) NOT NULL
+);
+CREATE TABLE usuarios(
+    id_usuario INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    username VARCHAR(20),
+    password VARCHAR(20)
+);
+
+INSERT INTO usuarios (username, password) VALUES ('online@doblenet', '21060212');
+
+INSERT INTO pagos (nombre, fecha, monto) VALUES
+    ('Cliente1', '2024-03-06', 500.00);
+
+ALTER TABLE nombre_de_tabla
+ADD nombre_columna1 tipo_de_dato,
+ADD nombre_columna2 tipo_de_dato;
+
+
+------- LEVANTAR EL SERVIDOR APACHE VIRTUAL HOST -----
+sudo mkdir /var/www/your_domain
+sudo chown -R $USER:$USER /var/www/your_domain
+sudo chmod -R 755 /var/www/your_domain
+sudo nano /etc/apache2/sites-available/your_domain.conf
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    ServerName your_domain
+    ServerAlias www.your_domain
+    DocumentRoot /var/www/your_domain
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+
+sudo a2ensite your_domain.conf
+sudo a2dissite 000-default.conf
+sudo apache2ctl configtest
+sudo systemctl restart apache2
+------- LEVANTAR EL SERVIDOR APACHE VIRTUAL HOST -----
+
+
+----------INSTALACION DE PHP --------------
+sudo apt-get install php mysql-server php-mysql
+----------INSTALACION DE PHP ---------------
+
+
+-------------ExPORTAR MYSQL------------
+mysqldump -u usuario -p doblenet > backup.sql
+-----------------------------------------
+
+---------------IMPORTAR MYSQL-------------------
+mysql -u usuario -p doblenet < backup.sql
+-------------------------------------------------

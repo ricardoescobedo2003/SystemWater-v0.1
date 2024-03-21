@@ -1,30 +1,87 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Cliente</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-    <div class="banner">
-        <img src="/img/watr-system.png" alt="Logo">
-    </div>
-
-    <form id="registrationForm">
-        <h2>Registro de Cliente</h2>
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
-
-        <label for="direccion">Dirección:</label>
-        <input type="text" id="direccion" name="direccion" required>
-
-        <label for="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono" required>
-
-        <button type="button" onclick="registrarCliente()">Registrar</button>
-    </form>
-
+    <title>Formulario Cliente</title>
+    <link rel="stylesheet" href="/css/stylesRegistro.css">
+    <link rel="stylesheet" href="/css/stylesConsulta.css">
+    <style>
+        nav {
+            background-color: blue; /* Establece el color de fondo de la barra de navegación */
+            padding: 10px; /* Agrega algo de espacio interno */
+        }
+        nav ul {
+            list-style-type: none; /* Quita los puntos de la lista */
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline; /* Muestra los elementos de la lista en línea */
+            margin-right: 20px; /* Añade espacio entre los elementos */
+        }
+        nav ul li a {
+            color: white; /* Establece el color del texto */
+            text-decoration: none; /* Quita el subrayado de los enlaces */
+        }
+    </style>
     <script src="script.js"></script>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="" onclick="guardarCliente()">Guardar Cliente</a></li>
+            <li><a href="/admin/index.html" onclick="inicio()">Home</a></li>
+        </ul>
+    </nav>
+
+    <div class="header"></div>
+    <div class="container">
+        <h2>Formulario de Cliente</h2>
+        <p>Ingresa los datos en los campos para guardar el cliente</p>
+        <form id="clienteForm">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required placeholder="Ej Ricardo Escobedo">
+
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" name="direccion" required placeholder="Ej Joaquin Amaro">
+
+            <label for="telefono">Teléfono:</label>
+            <input type="number" id="telefono" name="telefono" required placeholder="Ej 4981442266">
+
+            <label for="localidad">Localidad:</label>
+            <select id="localidad" name="localidad" required>
+                <option value="Tierra Blanca">Tierra Blanca </option>
+                <option value="Playas del Refugio">Playas del Refugio</option>
+                <option value="General Lauro">General Lauro</option>
+                <option value="Colonia Pozo Colorado">Colonia Pozo Colorado</option>
+                <option value="Maravillas">Maravillas</option>
+                <option value="Colonia Madero">Colonia Madero</option>
+                <option value="Colonia Lazaro Cardenas">Colonia Lazaro Cardenas</option>
+                <option value="Noria de Molinos">Noria de Molinos</option>
+                <option value="La Manga">La Manga</option>
+                <option value="El Tepetate">El Tepetate</option>
+                <option value="Carrilo Puerto">Carrilo Puerto</option>
+                <option value="Jarillas">Jarillas</option>
+                <option value="Noria del Borrego">Noria del Borrego</option>
+                <option value="La Victoria">La Victoria</option>
+                <option value="La Victoria">El Prieto</option>
+                <option value="Guadalupe de Atlas">Guadalupe de Atlas</option>
+                <option value="El Rascon">El Rascon</option>
+                <!-- Agrega más opciones según sea necesario -->
+            </select>
+
+
+            <label for="mensualidad">Mensualidad</label>
+            <input type="number" id="mensualidad" name="mensualidad" required placeholder="Ej 450">
+            
+            <label for="comentarios" aria-placeholder="Se coloco un switch para una computadora extra">Comentarios:</label>
+            <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+
+        </form>
+    </div>
 </body>
+
 </html>

@@ -1,0 +1,33 @@
+.campo {
+    margin-bottom: 20px;
+}
+
+.campo label {
+    display: inline-block;
+    width: 150px;
+}
+
+.campo input[type="text"],
+.campo input[type="tel"],
+.campo input[type="number"],
+.campo textarea,
+.campo select {
+    width: calc(100% - 160px); /* Esto asegura que el ancho del campo sea el adecuado */
+    padding: 8px;
+    margin-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}

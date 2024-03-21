@@ -3,44 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="shortcut icon" href="img/watr-system.png"> 
-
+    <link rel="stylesheet" href="/css/stylesConsulta.css">
+    <link rel="shortcut icon" href="/img/Logo R-Escobedo Software-modified.png"> 
     <title>Mostrar los Usuarios</title>
 </head>
-<body>
+<body onload="realizarConsulta()">
+    
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="inicio()">Home</a></li>
+                
+            </ul>
+        </nav>
 
-<h2>Mostrar a los Usuarios</h2>
+    </header>
+    <p>Aqui encuentras a todos los clientes registrados </p>
 
-<button onclick="realizarConsulta()">Mostrar</button>
+    <div id="resultados"></div>
 
-<div id="resultados"></div>
-
-<script>
-function realizarConsulta() {
-    // Realizar una solicitud FETCH al backend
-    fetch('backend.php')
-        .then(response => response.json())
-        .then(resultados => mostrarResultados(resultados))
-        .catch(error => console.error('Error:', error));
-}
-
-function mostrarResultados(resultados) {
-    var resultadosDiv = document.getElementById("resultados");
-
-    if (resultados.length > 0) {
-        // Crear tabla de resultados
-        var tabla = "<table><tr><th>ID Cliente</th><th>Nombre</th><th>Dirección</th><th>Teléfono</th></tr>";
-        for (var i = 0; i < resultados.length; i++) {
-            tabla += "<tr><td>" + resultados[i].id_cliente + "</td><td>" + resultados[i].nombre + "</td><td>" + resultados[i].direccion + "</td><td>" + resultados[i].telefono + "</td></tr>";
+    <script>
+        function realizarConsulta() {
+            // Realizar una solicitud FETCH al backend
+            fetch('backend.php')
+                .then(response => response.json())
+                .then(resultados => mostrarResultados(resultados))
+                .catch(error => console.error('Error:', error));
         }
-        tabla += "</table>";
-        resultadosDiv.innerHTML = tabla;
-    } else {
-        resultadosDiv.innerHTML = "<p>No se encontraron resultados</p>";
-    }
-}
-</script>
 
+        function mostrarResultados(resultados) {
+            var resultadosDiv = document.getElementById("resultados");
+
+            if (resultados.length > 0) {
+                // Crear tabla de resultados
+                var tabla = "<table><tr><th>ID Cliente</th><th>Nombre</th><th>Dirección</th><th>Localidad</th><th>Fecha Instalacion</th><th>Equipos</th><th>Mensualidad</th><th>Telefono</th><th>Comentarios</tr>";
+                for (var i = 0; i < resultados.length; i++) {
+                    tabla += "<tr><td>" + resultados[i].id_cliente + "</td><td>" + resultados[i].nombre + "</td><td>" + resultados[i].direccion + "</td><td>" + resultados[i].localidad + "</td><td>" + resultados[i].fechaInstalacion + "</td>" 
+                        + "<td>" + resultados[i].equipos + "</td><td>" + resultados[i].mensualidad + "</td>" + "<td>" + resultados[i].telefono + "</td><td>" + resultados[i].comentarios + "</td></tr>"                }
+                tabla += "</table>";
+                resultadosDiv.innerHTML = tabla;
+            } else {
+                resultadosDiv.innerHTML = "<p>No se encontraron resultados</p>";
+            }
+        }
+
+        function redireccionar() {
+            // Puedes cambiar "otra_pagina.html" por la URL a la que quieres redireccionar.
+            window.location.href = "/registro/index.html";
+        }
+
+        function inicio(){
+            window.location.href = "/admin/index.html";
+        }
+        function modificar(){
+            window.location.href = "/busquedaEdicion/index.html"
+        }
+    </script>
 </body>
 </html>
